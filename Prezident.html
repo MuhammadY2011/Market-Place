@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" href="https://cdn-icons-png.flaticon.com/512/3659/3659899.png">
     <title>Market Place</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <style>
         body {
@@ -180,7 +178,7 @@
         <ul class="navbar-nav w-100">
             <!-- Log Out with Line Below -->
             <li class="nav-item">
-                <a class="nav-link active text-black" aria-current="page" href="sign.up.html" style="font-size: 14px;">
+                <a class="nav-link active text-black" aria-current="page" href="intel.html" style="font-size: 14px;">
                     <img src="3596149.png" alt="Logo" style="height: 20px; width: 20px;"> Log Out
                 </a>
                 <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
@@ -197,73 +195,31 @@
                 <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
             </li>
 
-            <li class="nav-item mt-3">
-                <a class="nav-link text-black" href="#" data-bs-toggle="modal" data-bs-target="#ideaModal" style="font-size: 14px;">
-                  <img src="comment.png" alt="Logo" style="height: 20px; width: 20px;"> Give Your Idea!
-                </a>
-              </li>
-
-            <!-- Give Your Idea Modal -->
-<div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="ideaForm">
-            <div class="mb-3">
-              <label for="userIdea" class="form-label">Your Idea or Feedback</label>
-              <textarea class="form-control" id="userIdea" rows="4" placeholder="Write your idea here..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Give Your Idea Modal -->
-<div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="ideaForm">
-            <div class="mb-3">
-              <label for="userIdea" class="form-label">Your Idea or Feedback</label>
-              <textarea class="form-control" id="userIdea" rows="4" placeholder="Write your idea here..." autofocus></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('ideaForm').addEventListener('submit', function (e) {
-      e.preventDefault(); // Sahifani qayta yuklanishining oldini olish
-      const idea = document.getElementById('userIdea').value.trim();
-      if (idea) {
-        // Fikrni localStorage-ga saqlash
-        let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
-        ideas.push(idea);
-        localStorage.setItem('ideas', JSON.stringify(ideas));
-  
-        alert('Your idea has been submitted!');
-        document.getElementById('userIdea').value = ''; // Maydonni tozalash
-        const ideaModal = bootstrap.Modal.getInstance(document.getElementById('ideaModal'));
-        ideaModal.hide(); // Modalni yopish
-      } else {
-        alert('Please write something before submitting.');
-      }
-    });
-  </script>
+            <div class="container my-5">
+              <h2>Messages</h2>
+              <ul id="messagesList" class="list-group">
+                  <!-- Fikrlar shu yerda ko'rsatiladi -->
+              </ul>
+          </div>
+          
+          <script>
+              // Saqlangan fikrlarni olish va ko'rsatish
+              const messagesList = document.getElementById('messagesList');
+              const ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+              if (ideas.length > 0) {
+                  ideas.forEach((idea, index) => {
+                      const listItem = document.createElement('li');
+                      listItem.className = 'list-group-item';
+                      listItem.textContent = `${index + 1}. ${idea}`;
+                      messagesList.appendChild(listItem);
+                  });
+              } else {
+                  const noMessages = document.createElement('li');
+                  noMessages.className = 'list-group-item text-muted';
+                  noMessages.textContent = 'No messages yet.';
+                  messagesList.appendChild(noMessages);
+              }
+          </script>
         </ul>
     </div>
 </div>
@@ -476,23 +432,4 @@
         </div>
     </div>
 </div>
-<!-- Drawer ichida foydalanuvchi nomini ko'rsatish uchun joy -->
-<div class="offcanvas-body d-flex flex-column align-items-center justify-content-center">
-    <!-- Centered Image -->
-    <img src="free-user-icon-3296-thumb.png" height="200" width="200" class="mb-2" alt="User Image">
-    <!-- Foydalanuvchi nomi -->
-    <h5 id="userNameDisplay" class="text-black mt-3"></h5>
-    <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
-</div>
-
-<script>
-  // Foydalanuvchi nomini localStorage'dan olish va drawer ichida ko'rsatish
-  const userName = localStorage.getItem('username');
-  if (userName) {
-    document.getElementById('userNameDisplay').textContent = `Xush kelibsiz, ${userName}!`;
-  } else {
-    document.getElementById('userNameDisplay').textContent = 'Xush kelibsiz, Mehmon!';
-  }
-</script>
-</body>
 </html>
