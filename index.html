@@ -44,7 +44,7 @@
         }
 
         .nav-item {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .nav-item img {
@@ -160,7 +160,7 @@
         <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand ms-2 mt-1 text-center" style="font-size: 18px;" href="#">Market Place</a>
+        <a class="navbar-brand ms-2 mt-1 text-center" style="font-size: 24px;" href="#">Market Place</a>
         <span class="navbar-toggler-icon nav-item nav-link" style="margin-top: 9px; height: 100; width: 100;">  
           <button>
             <img src="images.jpg" height="24" width="24" class="Logo" alt="icon">
@@ -205,51 +205,62 @@
                 <a class="nav-link text-black" href="#" data-bs-toggle="modal" data-bs-target="#ideaModal" style="font-size: 14px;">
                   <img src="comment.png" alt="Logo" style="height: 20px; width: 20px;"> Give Your Idea!
                 </a>
-              </li>
-
-            <!-- Give Your Idea Modal -->
+              </li> 
+<!-- Give Your Idea Modal -->
 <div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="ideaForm">
-            <div class="mb-3">
-              <label for="userIdea" class="form-label">Your Idea or Feedback</label>
-              <textarea class="form-control" id="userIdea" rows="4" placeholder="Write your idea here..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="ideaForm">
+          <div class="mb-3">
+            <label for="userIdea" class="form-label">Your Idea or Feedback</label>
+            <textarea class="form-control" id="userIdea" rows="4" placeholder="Write your idea here..." autofocus></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>
-
-  <!-- Give Your Idea Modal -->
-<div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <form id="ideaForm">
-                  <div class="mb-3">
-                      <label for="userIdea" class="form-label">Your Idea or Feedback</label>
-                      <textarea class="form-control" id="userIdea" rows="4" placeholder="Write your idea here..."></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-          </div>
-      </div>
-  </div>
 </div>
+
+<script>
+  // Formni yuborish funksiyasi
+  const ideaForm = document.getElementById('ideaForm');
+  const userIdeaInput = document.getElementById('userIdea');
+
+  // Enter tugmasini bosganda fikrni yuborish
+  userIdeaInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault(); // Enter tugmasi yangi qatorga o'tmasligi uchun
+      ideaForm.dispatchEvent(new Event('submit')); // Formani yuborish
+    }
+  });
+
+  // Formni yuborish va fikrni saqlash
+  ideaForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Sahifani qayta yuklanishining oldini olish
+    const ideaText = userIdeaInput.value.trim();
+
+    if (ideaText) {
+      // Fikrni localStorage-ga saqlash
+      let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+      ideas.push(ideaText);
+      localStorage.setItem('ideas', JSON.stringify(ideas));
+
+      alert('Your idea has been submitted!');
+      userIdeaInput.value = ''; // Maydonni tozalash
+      const modal = bootstrap.Modal.getInstance(document.getElementById('ideaModal'));
+      modal.hide(); // Modalni yopish
+    } else {
+      alert('Please write something before submitting.');
+    }
+  });
+</script>   
   <script>
-        const ideaForm = document.getElementById('ideaForm');
         ideaForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Formni submit qilganda sahifa yangilanmasligi uchun
         
@@ -327,7 +338,13 @@ Battery Life: Up to 22 hours of video playback
                 <div class="card-body">
                   <h5 class="card-title">Iphone 14 Pro Max 
                   </h5>
-                  <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                  <p class="card-text ">
+                    ize: 6.7-inch Super Retina XDR OLED
+
+Resolution: 2796 × 1290 pixels at 460 ppi
+
+Features: Dynamic Island, Always-On display, ProMotion technology with adaptive refresh rates up to 120Hz, HDR10, Dolby Vision, True Tone, Wide color (P3), Haptic Touc
+                  </p>
                   <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 900$
@@ -344,7 +361,12 @@ Battery Life: Up to 22 hours of video playback
                 <div class="card-body">
                   <h5 class="card-title">Asus Zephyrs G14
                   </h5>
-                  <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                  <p class="card-text ">
+                    Intel Configuration: Intel® Core™ Ultra 9 185H (16 cores, 22 threads, up to 5.1 GHz) 
+                    Intel Models: Up to NVIDIA® GeForce RTX™ 4090 Laptop GPU (16GB GDDR6) with ROG Boost up to 1700MHz at 115W
+                    Resolution: 2.5K (2560 x 1600) WQXGA Panel Options: OLED or IPS-level Refresh Rate: 240Hz    Response Time: 0.2ms (OLED) or 3ms (IPS)                    
+                    Storage: Up to 2TB PCIe® 4.0 NVMe™ M.2 SSD Battery: 90Wh Chassis: Premium aluminum, ultra-slim design (1.49 cm thick)
+                  </p>
                   <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 2500$
@@ -405,14 +427,20 @@ Materials: Stainless steel frame with breathable knit mesh headband and memory f
             <div class="card" background-color: rgb(255, 255, 255); border: 1px solid white; margin: 20px auto;>
                 <img src="51Gz7IimgoL._SL1024_.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">MackBook 16 air 
+                  <h5 class="card-title">Nintendo Switch
                   </h5>
-                  <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                  <p class="card-text ">
+                    Display: 6.2-inch LCD touchscreen (1280×720 resolution)
+Storage: 32 GB internal, expandable via microSD (up to 2 TB)
+Battery Life: Approximately 4.5–9 hours
+Video Output: Up to 1080p via HDMI in TV mode
+Audio: Stereo speakers
+                  </p>
                   <h6>
-                    Price: 800$
+                    Price: 299$
                   </h6>
                    <h6>
-                    Price: 8 000 000 so'm
+                    Price: 3 100 000 so'm
                    </h6>
                   <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
                 </div>
