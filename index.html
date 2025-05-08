@@ -14,6 +14,18 @@
         body {
             background-color: black;
             color: white;
+            
+        }
+        h3 {
+            font-weight: 50;
+            font-size: small;
+            font-style: normal;
+        }
+
+        h2 {
+            font-weight: 50;
+            font-size: medium;
+            font-style: normal;
         }
 
         nav {
@@ -127,21 +139,33 @@
 
 <body>
     <!-- Modal -->
-<div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="welcomeModalLabel">Xush Kelibsiz!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Assalomu Aleykum Xurmatli User! Bizning Market Place saytimizga xush kelibsiz!!! Bu Beta versiyada chiqqan, agar bag'lar yoki nimadur qo'shmoqchi bo'lsangiz bizga murojaat qilib qo'ying!
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
-        </div>
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="welcomeModalLabel">Xush Kelibsiz!</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div style="size: 10cm;" class="modal-body">
+                  <p>
+                      Assalomu Aleykum Xurmatli User! Bizning Market Place saytimizga xush kelibsiz!!! Bu Beta versiyada chiqqan, agar bag'lar yoki nimadur qo'shmoqchi bo'lsangiz bizga murojaat qilib qo'ying!
+                  </p>
+                  <h3>
+                      Eslatma: Telegram kanalimizni kuzatib boring, chunki bizda har doim yangiliklar bo'ladi! Va yaqinlaringizga ssilkasini ulashing.
+                  </h3>
+                  <a href="https://t.me/MarketPlace_204" target="_blank" class="btn btn-primary">Telegram Kanalimiz</a>
+                  <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
+                  <h2>
+                      YouTube kanalimizga ham obuna bo'ling va yangiliklardan xabardor bo'ling!
+                  </h2>
+                  <a href="https://www.youtube.com/@ZeroX-p6i" target="_blank" class="btn btn-danger">YouTube Kanalimiz</a>
+                  <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
   
   <script>
@@ -195,7 +219,7 @@
                 <a class="nav-link text-black" target="_blank" href="https://t.me/MarketPlace_204" style="font-size: 14px;">
                     <img src="images.png" alt="Logo" style="height: 20px; width: 20px;"> Our Telegram Channel
                 </a>
-                <a class="nav-link text-black" target="_blank" href="https://www.youtube.com/@TheDafanmade" style="font-size: 14px;">
+                <a class="nav-link text-black" target="_blank" href="www.youtube.com/@ZeroX-p6i" style="font-size: 14px;">
                     <img src="2111795.png" alt="Logo" style="height: 20px; width: 20px;"> YouTube Channel
                 </a>
                 <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
@@ -206,61 +230,65 @@
                   <img src="comment.png" alt="Logo" style="height: 20px; width: 20px;"> Give Your Idea!
                 </a>
               </li> 
-<!-- Give Your Idea Modal -->
-<div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="ideaForm">
-          <div class="mb-3">
-            <label for="userIdea" class="form-label">Your Idea or Feedback</label>
-            <!-- Telefonda Enter tugmasini ishlatish uchun textarea ichiga "enterkeyhint" qo'shildi -->
-            <textarea class="form-control" id="userIdea" rows="4" placeholder="Write your idea here..." autofocus enterkeyhint="send"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Formni yuborish funksiyasi
-  const ideaForm = document.getElementById('ideaForm');
-  const userIdeaInput = document.getElementById('userIdea');
-
-  // Enter tugmasini bosganda fikrni yuborish
-  userIdeaInput.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter' && !event.shiftKey) {
-      event.preventDefault(); // Enter tugmasi yangi qatorga o'tmasligi uchun
-      ideaForm.dispatchEvent(new Event('submit')); // Formani yuborish
-    }
-  });
-
-  // Formni yuborish va fikrni saqlash
-  ideaForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Sahifani qayta yuklanishining oldini olish
-    const ideaText = userIdeaInput.value.trim();
-
-    if (ideaText) {
-      // Fikrni localStorage-ga saqlash
-      let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
-      ideas.push(ideaText);
-      localStorage.setItem('ideas', JSON.stringify(ideas));
-
-      alert('Your idea has been submitted!');
-      userIdeaInput.value = ''; // Maydonni tozalash
-      const modal = bootstrap.Modal.getInstance(document.getElementById('ideaModal'));
-      modal.hide(); // Modalni yopish
-    } else {
-      alert('Please write something before submitting.');
-    }
-  });
-</script>   
+              <div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="ideaForm">
+                        <div class="mb-3">
+                          <label for="userIdea" class="form-label">Your Idea or Feedback</label>
+                          <!-- Telefonda Enter tugmasini ishlatish uchun textarea ichiga "enterkeyhint" qo'shildi -->
+                          <textarea class="form-control" id="userIdea" rows="4" placeholder="Write your idea here..." enterkeyhint="send"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <script>
+                // Formni yuborish funksiyasi
+                const ideaForm = document.getElementById('ideaForm');
+                const userIdeaInput = document.getElementById('userIdea');
+              
+                // Modal ochilganda textarea'ga fokus berish
+                ideaModal.addEventListener('shown.bs.modal', function () {
+                  userIdeaInput.focus(); // Fokusni textarea'ga berish
+                });
+              
+                // Enter tugmasini bosganda fikrni yuborish
+                userIdeaInput.addEventListener('keydown', function (event) {
+                  if (event.key === 'Enter' && !event.shiftKey) {
+                    event.preventDefault(); // Enter tugmasi yangi qatorga o'tmasligi uchun
+                    ideaForm.dispatchEvent(new Event('submit')); // Formani yuborish
+                  }
+                });
+              
+                // Formni yuborish va fikrni saqlash
+                ideaForm.addEventListener('submit', function (event) {
+                  event.preventDefault(); // Sahifani qayta yuklanishining oldini olish
+                  const ideaText = userIdeaInput.value.trim();
+              
+                  if (ideaText) {
+                    // Fikrni localStorage-ga saqlash
+                    let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+                    ideas.push(ideaText);
+                    localStorage.setItem('ideas', JSON.stringify(ideas));
+              
+                    alert('Your idea has been submitted!');
+                    userIdeaInput.value = ''; // Maydonni tozalash
+                    const modal = bootstrap.Modal.getInstance(ideaModal);
+                    modal.hide(); // Modalni yopish
+                  } else {
+                    alert('Please write something before submitting.');
+                  }
+                });
+              </script>  
   <script>
         ideaForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Formni submit qilganda sahifa yangilanmasligi uchun
