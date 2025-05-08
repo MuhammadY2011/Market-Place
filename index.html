@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="website icon" href="https://cdn-icons-png.flaticon.com/512/3659/3659899.png">
+    <link rel="website icon" href="Website logo.jpg">
     <title>Market Place</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -134,6 +134,28 @@
     .nav-link:hover {
         color: #007bff;
     }
+  /* Navbarni kichiklashtirish */
+  nav.navbar {
+    height: 60px; /* Navbar balandligini sozlash */
+    line-height: 60px; /* Matnni vertikal markazlash */
+    padding: 0 15px; /* Ichki bo'shliqni sozlash */
+  }
+
+  nav.navbar .navbar-brand {
+    font-size: 20px; /* Brend nomining shrift o'lchami */
+    line-height: 60px; /* Matnni vertikal markazlash */
+  }
+
+  nav.navbar .btn {
+    height: 40px; /* Tugma balandligi */
+    line-height: 40px; /* Tugma ichidagi matnni markazlash */
+    padding: 0 10px; /* Tugma ichki bo'shligi */
+  }
+
+  nav.navbar .navbar-toggler-icon {
+    height: 30px; /* Toggler ikonka balandligi */
+    width: 30px; /* Toggler ikonka kengligi */
+  }
     </style>
 </head>
 
@@ -178,18 +200,154 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
 
-   <!-- Offcanvas Trigger -->
-<nav class="navbar">
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <!-- Drawer Trigger -->
         <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand ms-2 mt-1 text-center" style="font-size: 24px;" href="#">Market Place</a>
-        <span class="navbar-toggler-icon nav-item nav-link" style="margin-top: 9px; height: 100; width: 100;">  
-          <button>
-            <img src="images.jpg" height="24" width="24" class="Logo" alt="icon">
-          </button> 
-        </span>
+    
+        <!-- Market Place nomi -->
+        <h1 class="navbar-brand mx-auto text-center" style="font-size: 28px; font-weight: bold; color: #000000;">Market Place</h1>
+    
+        <!-- Qidiruv tugmasi -->
+        <div class="d-flex align-items-center">
+          <button class="btn btn-outline-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#searchModal" style="font-size: 16px; padding: 5px 15px; border-radius: 25px; color: black;">
+            <img src="images.jpg" height="24" width="24" class="me-2" alt="icon"> Search
+          </button>
+        </div>
+      </div>
+    </nav>
+
+        <!-- Search Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel">Search Gadgets</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="searchInput" class="form-control" placeholder="Type to search...">
+        <ul id="searchResults" class="list-group mt-3">
+          <!-- Qidiruv natijalari shu yerda ko'rsatiladi -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  // Mahsulotlar ro'yxati
+  const products = [
+    { 
+      name: "MackBook 16 air", 
+      description: "16.2-inch Liquid Retina XDR", 
+      image: "1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" 
+    },
+    { 
+      name: "Iphone 14 Pro Max", 
+      description: "6.7-inch Super Retina XDR OLED", 
+      image: "0a8b0da0-31d6-45ce-bdb3-35afeb7db04c.03e73e241203526c7fed6b34bda121c2.webp" 
+    },
+    { 
+      name: "Asus Zephyrs G14", 
+      description: "Intel® Core™ Ultra 9 185H", 
+      image: "1-3-768x768.png" 
+    },
+    { 
+      name: "Play station Steering Wheel", 
+      description: "Force feedback, 900-degree rotation", 
+      image: "61IwZwlTopL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      name: "Air Pods Max", 
+      description: "Stainless steel frame with breathable knit mesh", 
+      image: "besprovodnye-naushniki-apple-airpods-max-58619-4.jpeg" 
+    },
+    { 
+      name: "Nintendo Switch", 
+      description: "6.2-inch LCD touchscreen", 
+      image: "51Gz7IimgoL._SL1024_.jpg" 
+    },
+    { 
+      name: "Giroskuter", 
+      description: "Self-balancing with gyroscopic sensors", 
+      image: "20160719070817r9hs.jpg" 
+    },
+    { 
+      name: "Ipad 12 pro", 
+      description: "12.9-inch Liquid Retina XDR", 
+      image: "u2.webp" 
+    },
+    { 
+      name: "Play Station 4", 
+      description: "500GB, 1TB storage options", 
+      image: "PS4-Console-wDS4.jpg" 
+    },
+    { 
+      name: "Play Station 5", 
+      description: "4K gaming, 120fps support", 
+      image: "ps5-vs-ps5-pro-carousel-gallery-bild-1-data" 
+    },
+  ];
+
+  // Qidiruv maydoniga yozilgan matnni qayta ishlash
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase();
+    searchResults.innerHTML = ""; // Eski natijalarni tozalash
+
+    if (query) {
+      const filteredProducts = products.filter(product =>
+        product.name.toLowerCase().includes(query)
+      );
+
+      if (filteredProducts.length > 0) {
+        filteredProducts.forEach(product => {
+          const listItem = document.createElement("li");
+          listItem.className = "list-group-item d-flex align-items-center";
+
+          // Mahsulot rasmi
+          const productImage = document.createElement("img");
+          productImage.src = product.image;
+          productImage.alt = product.name;
+          productImage.style.width = "50px";
+          productImage.style.height = "50px";
+          productImage.style.marginRight = "15px";
+          productImage.style.borderRadius = "5px";
+
+          // Mahsulot nomi va tavsifi
+          const productInfo = document.createElement("div");
+          const productName = document.createElement("h6");
+          productName.textContent = product.name;
+          productName.style.margin = "0";
+          const productDescription = document.createElement("p");
+          productDescription.textContent = product.description;
+          productDescription.style.margin = "0";
+          productDescription.style.fontSize = "12px";
+          productDescription.style.color = "gray";
+
+          productInfo.appendChild(productName);
+          productInfo.appendChild(productDescription);
+
+          listItem.appendChild(productImage);
+          listItem.appendChild(productInfo);
+          searchResults.appendChild(listItem);
+        });
+      } else {
+        const noResult = document.createElement("li");
+        noResult.className = "list-group-item text-muted";
+        noResult.textContent = "No results found.";
+        searchResults.appendChild(noResult);
+      }
+    }
+  });
+</script>
     </div>
 </nav>
 
@@ -377,7 +535,7 @@ Resolution: 2796 × 1290 pixels at 460 ppi
 
 Features: Dynamic Island, Always-On display, ProMotion technology with adaptive refresh rates up to 120Hz, HDR10, Dolby Vision, True Tone, Wide color (P3), Haptic Touc
                   </p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="0a8b0da0-31d6-45ce-bdb3-35afeb7db04c.03e73e241203526c7fed6b34bda121c2.webp" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 900$
                   </h6>
@@ -399,7 +557,7 @@ Features: Dynamic Island, Always-On display, ProMotion technology with adaptive 
                     Resolution: 2.5K (2560 x 1600) WQXGA Panel Options: OLED or IPS-level Refresh Rate: 240Hz    Response Time: 0.2ms (OLED) or 3ms (IPS)                    
                     Storage: Up to 2TB PCIe® 4.0 NVMe™ M.2 SSD Battery: 90Wh Chassis: Premium aluminum, ultra-slim design (1.49 cm thick)
                   </p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="1-3-768x768.png" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 2500$
                   </h6>
@@ -422,7 +580,7 @@ Features: Force feedback, 900-degree rotation, responsive pedals
 
 Build: Leather-wrapped wheel, stainless steel paddle shifters
                   </p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="61IwZwlTopL._AC_UF1000,1000_QL80_.jpg" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 490$
                   </h6>
@@ -445,7 +603,7 @@ Weight: 384.8 grams (headphones), 134.5 grams (Smart Case)
 
 Materials: Stainless steel frame with breathable knit mesh headband and memory foam ear cushions
                   </p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="besprovodnye-naushniki-apple-airpods-max-58619-4.jpeg" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 549$
                   </h6>
@@ -474,7 +632,7 @@ Audio: Stereo speakers
                    <h6>
                     Price: 3 100 000 so'm
                    </h6>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="51Gz7IimgoL._SL1024_.jpg" target="_blank" class="btn btn-primary">Show picture</a>
                 </div>
               </div>
         </div>
@@ -493,7 +651,7 @@ Range: Approximately 10-20 km on a full charge
 
 Features: LED lights, Bluetooth speakers (on some models)
                   </p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="20160719070817r9hs.jpg" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 349$
                   </h6>
@@ -514,7 +672,7 @@ Features: LED lights, Bluetooth speakers (on some models)
 Processor: Apple M2 chip with 8-core CPU and 10-core GPU
 Storage Options: 512GB, 1TB, 2TB
                   </p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="u2.webp" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 990$ 1TB
                   </h6>
@@ -537,7 +695,7 @@ Graphics: AMD Radeon-based graphics engine
 Performance: Capable of HDR gaming
 Backward Compatibility: Supports a vast library of PS4 games
                   </p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="PS4-Console-wDS4.jpg" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 280$
                   </h6>
@@ -566,7 +724,7 @@ Power Consumption: 575W TDP, requires 1000W PSU
 
 Features: DLSS 4, Ray Tracing, PCIe 5.0 support
                   </p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="zt-b50900b-10p-image01.jpg" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 1990$
                   </h6>
@@ -589,7 +747,7 @@ Features: DLSS 4, Ray Tracing, PCIe 5.0 support
                     Performance: Enhanced performance over the standard PS5
                     
                     Backward Compatibility: Supports most PS4 games with improved performance</p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="ps5-vs-ps5-pro-carousel-gallery-bild-1-data.png" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 600$
                   </h6>
@@ -606,7 +764,7 @@ Features: DLSS 4, Ray Tracing, PCIe 5.0 support
                   <h5 class="card-title">Gigabyte Monitor 
                   </h5>
                   <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                  <a href="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <a href="shopping.webp" target="_blank" class="btn btn-primary">Show picture</a>
                   <h6>
                     Price: 2400$
                   </h6>
