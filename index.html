@@ -255,10 +255,13 @@
                 // Formni yuborish funksiyasi
                 const ideaForm = document.getElementById('ideaForm');
                 const userIdeaInput = document.getElementById('userIdea');
+                // Removed duplicate declaration of ideaModal
               
                 // Modal ochilganda textarea'ga fokus berish
                 ideaModal.addEventListener('shown.bs.modal', function () {
-                  userIdeaInput.focus(); // Fokusni textarea'ga berish
+                  setTimeout(() => {
+                    userIdeaInput.focus(); // Fokusni textarea'ga berish
+                  }, 200); // Fokusni kechiktirish (mobil qurilmalarda ishlashi uchun)
                 });
               
                 // Enter tugmasini bosganda fikrni yuborish
@@ -282,8 +285,8 @@
               
                     alert('Your idea has been submitted!');
                     userIdeaInput.value = ''; // Maydonni tozalash
-                    const modal = bootstrap.Modal.getInstance(ideaModal);
-                    modal.hide(); // Modalni yopish
+                    const modalInstance = bootstrap.Modal.getInstance(ideaModal);
+                    modalInstance.hide(); // Modalni yopish
                   } else {
                     alert('Please write something before submitting.');
                   }
@@ -306,8 +309,8 @@
             alert("Please write your idea!");
         }
     });
-    const ideaModal = document.getElementById('ideaModal');
-    ideaModal.addEventListener('shown.bs.modal', function () {
+    // Removed duplicate declaration of ideaModal
+    document.getElementById('ideaModal').addEventListener('shown.bs.modal', function () {
         document.getElementById('userIdea').focus();
     });
 </script>
