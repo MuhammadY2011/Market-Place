@@ -196,31 +196,79 @@
                 <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
             </li>
 
-            <div class="container my-5">
-              <h2>Messages</h2>
-              <ul id="messagesList" class="list-group">
-                  <!-- Fikrlar shu yerda ko'rsatiladi -->
-              </ul>
+           <!-- Give Your Idea Modal -->
+<div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="ideaForm">
+          <div class="mb-3">
+            <label for="userIdea" class="form-label">Your Idea or Feedback</label>
+            <textarea class="form-control" id="userIdea" rows="4" placeholder="Write your idea here..." autofocus></textarea>
           </div>
-          
-          <script>
-              // Saqlangan fikrlarni olish va ko'rsatish
-              const messagesList = document.getElementById('messagesList');
-              const ideas = JSON.parse(localStorage.getItem('ideas')) || [];
-              if (ideas.length > 0) {
-                  ideas.forEach((idea, index) => {
-                      const listItem = document.createElement('li');
-                      listItem.className = 'list-group-item';
-                      listItem.textContent = `${index + 1}. ${idea}`;
-                      messagesList.appendChild(listItem);
-                  });
-              } else {
-                  const noMessages = document.createElement('li');
-                  noMessages.className = 'list-group-item text-muted';
-                  noMessages.textContent = 'No messages yet.';
-                  messagesList.appendChild(noMessages);
-              }
-          </script>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Messages Section -->
+<div class="container my-5">
+  <h2>Messages</h2>
+  <ul id="messagesList" class="list-group">
+    <!-- Fikrlar shu yerda ko'rsatiladi -->
+  </ul>
+</div>
+
+<script>
+  // Formni yuborish va fikrni saqlash
+  const ideaForm = document.getElementById('ideaForm');
+  const userIdeaInput = document.getElementById('userIdea');
+  const messagesList = document.getElementById('messagesList');
+
+  // Fikrlarni localStorage'dan olish va ko'rsatish
+  function loadMessages() {
+    const ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+    messagesList.innerHTML = ''; // Eski fikrlarni tozalash
+    ideas.forEach((idea, index) => {
+      const listItem = document.createElement('li');
+      listItem.className = 'list-group-item';
+      listItem.textContent = `${index + 1}. ${idea}`;
+      messagesList.appendChild(listItem);
+    });
+  }
+
+  // Sahifa yuklanganda fikrlarni yuklash
+  loadMessages();
+
+  // Formni yuborish
+  ideaForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Sahifani qayta yuklanishining oldini olish
+    const ideaText = userIdeaInput.value.trim();
+
+    if (ideaText) {
+      // Fikrni localStorage-ga saqlash
+      let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+      ideas.push(ideaText);
+      localStorage.setItem('ideas', JSON.stringify(ideas));
+
+      alert('Your idea has been submitted!');
+      userIdeaInput.value = ''; // Maydonni tozalash
+      const modal = bootstrap.Modal.getInstance(document.getElementById('ideaModal'));
+      modal.hide(); // Modalni yopish
+
+      // Yangi fikrlarni yuklash
+      loadMessages();
+    } else {
+      alert('Please write something before submitting.');
+    }
+  });
+</script>
         </ul>
     </div>
 </div>
