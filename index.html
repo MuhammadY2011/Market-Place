@@ -295,58 +295,65 @@
   ];
 
   // Qidiruv maydoniga yozilgan matnni qayta ishlash
-  const searchInput = document.getElementById("searchInput");
-  const searchResults = document.getElementById("searchResults");
+searchInput.addEventListener("input", function () {
+  const query = searchInput.value.toLowerCase();
+  searchResults.innerHTML = ""; // Eski natijalarni tozalash
 
-  searchInput.addEventListener("input", function () {
-    const query = searchInput.value.toLowerCase();
-    searchResults.innerHTML = ""; // Eski natijalarni tozalash
+  if (query) {
+    const filteredProducts = products.filter(product =>
+      product.name.toLowerCase().includes(query)
+    );
 
-    if (query) {
-      const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(query)
-      );
+    if (filteredProducts.length > 0) {
+      filteredProducts.forEach(product => {
+        const listItem = document.createElement("li");
+        listItem.className = "list-group-item d-flex align-items-center";
+        listItem.style.cursor = "pointer";
 
-      if (filteredProducts.length > 0) {
-        filteredProducts.forEach(product => {
-          const listItem = document.createElement("li");
-          listItem.className = "list-group-item d-flex align-items-center";
+        // Mahsulot rasmi
+        const productImage = document.createElement("img");
+        productImage.src = product.image;
+        productImage.alt = product.name;
+        productImage.style.width = "50px";
+        productImage.style.height = "50px";
+        productImage.style.marginRight = "15px";
+        productImage.style.borderRadius = "5px";
 
-          // Mahsulot rasmi
-          const productImage = document.createElement("img");
-          productImage.src = product.image;
-          productImage.alt = product.name;
-          productImage.style.width = "50px";
-          productImage.style.height = "50px";
-          productImage.style.marginRight = "15px";
-          productImage.style.borderRadius = "5px";
+        // Mahsulot nomi va tavsifi
+        const productInfo = document.createElement("div");
+        const productName = document.createElement("h6");
+        productName.textContent = product.name;
+        productName.style.margin = "0";
+        const productDescription = document.createElement("p");
+        productDescription.textContent = product.description;
+        productDescription.style.margin = "0";
+        productDescription.style.fontSize = "12px";
+        productDescription.style.color = "gray";
 
-          // Mahsulot nomi va tavsifi
-          const productInfo = document.createElement("div");
-          const productName = document.createElement("h6");
-          productName.textContent = product.name;
-          productName.style.margin = "0";
-          const productDescription = document.createElement("p");
-          productDescription.textContent = product.description;
-          productDescription.style.margin = "0";
-          productDescription.style.fontSize = "12px";
-          productDescription.style.color = "gray";
+        productInfo.appendChild(productName);
+        productInfo.appendChild(productDescription);
 
-          productInfo.appendChild(productName);
-          productInfo.appendChild(productDescription);
+        listItem.appendChild(productImage);
+        listItem.appendChild(productInfo);
 
-          listItem.appendChild(productImage);
-          listItem.appendChild(productInfo);
-          searchResults.appendChild(listItem);
+        // Mahsulot ustiga bosilganda asosiy menyudagi gadjetga o'tish
+        listItem.addEventListener("click", function () {
+          const targetElement = document.getElementById(product.name.toLowerCase().replace(/\s+/g, ""));
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
         });
-      } else {
-        const noResult = document.createElement("li");
-        noResult.className = "list-group-item text-muted";
-        noResult.textContent = "No results found.";
-        searchResults.appendChild(noResult);
-      }
+
+        searchResults.appendChild(listItem);
+      });
+    } else {
+      const noResult = document.createElement("li");
+      noResult.className = "list-group-item text-muted";
+      noResult.textContent = "No results found.";
+      searchResults.appendChild(noResult);
     }
-  });
+  }
+});
 </script>
     </div>
 </nav>
@@ -498,7 +505,7 @@
 </body>
 <div class="container my-5">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <div class="col">
+        <div class="col" id="mackbook">
             <div class="card" background-color: rgb(255, 255, 255); border: 1px solid white; margin: 20px auto;>
                 <img src="1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -522,7 +529,7 @@ Battery Life: Up to 22 hours of video playback
                 </div>
               </div>
         </div>
-        <div class="col">
+        <div class="col"  id="mackbook">
             <div class="card" background-color: rgb(255, 255, 255); border: 1px solid white; margin: 20px auto;>
                 <img src="0a8b0da0-31d6-45ce-bdb3-35afeb7db04c.03e73e241203526c7fed6b34bda121c2.webp" class="card-img-top" alt="...">
                 <div class="card-body">
