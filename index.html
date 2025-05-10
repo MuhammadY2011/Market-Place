@@ -156,6 +156,765 @@
     height: 30px; /* Toggler ikonka balandligi */
     width: 30px; /* Toggler ikonka kengligi */
   }
+
+  /* Umumiy tanlangan ranglar va shriftlar */
+  body {
+    background-color: #f8f9fa; /* Yengil kulrang fon */
+    color: #212529; /* Matn uchun qora rang */
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* Navbar dizayni */
+  nav.navbar {
+    background-color: #ffffff; /* Oq fon */
+    border-bottom: 2px solid #007bff; /* Pastki chiziq */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Yengil soyalar */
+  }
+
+  nav.navbar .navbar-brand {
+    font-size: 28px;
+    font-weight: bold;
+    color: #007bff; /* Ko'k rang */
+  }
+
+  nav.navbar .btn {
+    border-radius: 25px;
+    font-size: 16px;
+    padding: 5px 15px;
+  }
+
+  nav.navbar .btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+  }
+
+  nav.navbar .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+
+  /* Modal dizayni */
+  .modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .modal-header {
+    background-color: #007bff;
+    color: #ffffff;
+    border-bottom: none;
+  }
+
+  .modal-footer {
+    border-top: none;
+  }
+
+  /* Kartalar dizayni */
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .card-body {
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .card-text {
+    font-size: 14px;
+    color: #6c757d;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 15px;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  /* Offcanvas dizayni */
+  .offcanvas {
+    background: linear-gradient(to right, #ffffff, #e9ecef);
+    border-radius: 0 10px 10px 0;
+  }
+
+  .offcanvas-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .offcanvas-body img {
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .offcanvas-body h2 {
+    color: #28a745;
+    font-weight: bold;
+  }
+
+  .offcanvas-body .nav-link {
+    font-size: 16px;
+    color: #212529;
+    transition: color 0.3s ease;
+  }
+
+  .offcanvas-body .nav-link:hover {
+    color: #007bff;
+  }
+
+  /* Fikr shakli */
+  #ideaForm textarea {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease;
+  }
+
+  #ideaForm textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  #ideaForm button {
+    border-radius: 25px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+  }
+
+  #ideaForm button:hover {
+    background-color: #0056b3;
+  }
+
+
+    /* Drawerni yuqorida qotib turadigan qilish */
+    .offcanvas.fixed-top {
+        top: 0;
+        z-index: 1050;
+    }
+
+    /* Kartalar uchun hover effekti */
+    .card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    /* Tugmalar uchun hover effekti */
+    .btn-primary:hover {
+        background-color: #0056b3;
+        color: #ffffff;
+    }
+
+    /* Foydalanuvchi nomi uchun matn uslubi */
+    #userNameDisplay {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+/* Drawer uchun qo'shimcha dizayn */
+    .offcanvas-header {
+        background-color: #007bff;
+        color: white;
+        padding: 15px;
+        border-bottom: 2px solid #0056b3;
+    }
+
+    .offcanvas-body img {
+        border: 3px solid #007bff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Kartalar uchun hover effekti */
+    .card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Tugmalar uchun hover effekti */
+    .btn-primary:hover {
+        background-color: #0056b3;
+        color: #ffffff;
+    }
+
+    /* Foydalanuvchi nomi uchun matn uslubi */
+    #userNameDisplay {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007bff;
+    }
+     
+/* Drawer tugmasi uchun qora chetlar */
+    .drawer-btn {
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .drawer-btn:hover {
+        background-color: black;
+        color: white;
+        border-color: white;
+    }
+
+    /* Search tugmasini o'rtaga joylashtirish */
+    .search-btn {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Drawer ichidagi rasm uchun soyalar */
+    .offcanvas-body img {
+        border: 3px solid #007bff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Drawer ichidagi vaqt matni */
+    #currentDateTime {
+        font-size: 14px;
+        font-style: italic;
+        color: #6c757d;
+    }
+
+    /* Drawer uchun hover effekti */
+    .offcanvas:hover {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Tugmalar uchun hover effekti */
+    .btn-primary:hover {
+        background-color: #0056b3;
+        color: #ffffff;
+    }
+
+    /* Kartalar uchun hover effekti */
+    .card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navbarni kichik ekranlarda markazlashtirish */
+    @media (max-width: 78px) {
+        .navbar {
+            justify-content: center;
+        }
+    }
+
+    /* Foydalanuvchi nomi uchun matn uslubi */
+    #userNameDisplay {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007bff;
+    }
+  
+/* Soat uchun uslub */
+    #clock {
+        font-size: 36px;
+        font-weight: bold;
+        color: #007bff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Drawer uchun rasm soyasi */
+    .offcanvas-body img {
+        border: 3px solid #007bff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Drawer uchun hover effekti */
+    .offcanvas:hover {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Tugmalar uchun hover effekti */
+    .btn-primary:hover {
+        background-color: #0056b3;
+        color: #ffffff;
+    }
+
+    /* Kartalar uchun hover effekti */
+    .card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navbarni kichik ekranlarda markazlashtirish */
+    @media (max-width: 768px) {
+        .navbar {
+            justify-content: center;
+        }
+    }
+
+    /* Foydalanuvchi nomi uchun matn uslubi */
+    #userNameDisplay {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    /* Drawer tugmasi uchun qora chetlar */
+    .drawer-btn {
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .drawer-btn:hover {
+        background-color: black;
+        color: white;
+        border-color: white;
+    }
+
+    /* Search tugmasini o'rtaga joylashtirish */
+    .search-btn {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Modal uchun soyalar */
+    .modal-content {
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Modal header uchun rang */
+    .modal-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    /* Kartalar uchun hover rang */
+    .card:hover {
+        background-color: #f8f9fa;
+    }
+
+    /* Navbar uchun soyalar */
+    nav.navbar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Drawer ichidagi vaqt matni */
+    #currentDateTime {
+        font-size: 14px;
+        font-style: italic;
+        color: #6c757d;
+    }
+
+    /* Drawer ichidagi rasm uchun soyalar */
+    .offcanvas-body img {
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Drawer ichidagi matn uchun rang */
+    .offcanvas-body h2 {
+        color: #28a745;
+    }
+
+    /* Drawer ichidagi link hover effekti */
+    .offcanvas-body .nav-link:hover {
+        color: #007bff;
+    }
+
+    /* Fikr shakli uchun hover effekti */
+    #ideaForm button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Kartalar uchun hover soyasi */
+    .card:hover {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Tugmalar uchun hover rang */
+    .btn-primary:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+      
+      /* Общие стили */
+    body {
+        background: linear-gradient(to bottom, #1e1e2f, #2a2a3b);
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2, h3, h5 {
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    a:hover {
+        color: #0056b3;
+    }
+
+    /* Navbar */
+    nav.navbar {
+        background: rgba(0, 0, 0, 0.8);
+        border-bottom: 2px solid #007bff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    nav.navbar .navbar-brand {
+        font-size: 28px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    nav.navbar .btn {
+        border-radius: 25px;
+        font-size: 16px;
+        padding: 5px 15px;
+        background: #007bff;
+        color: #ffffff;
+        border: none;
+    }
+
+    nav.navbar .btn:hover {
+        background: #0056b3;
+    }
+
+    /* Drawer */
+    .offcanvas {
+        background: linear-gradient(to right, #1e1e2f, #2a2a3b);
+        color: #ffffff;
+        border-radius: 0 10px 10px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .offcanvas-header {
+        background: #007bff;
+        color: #ffffff;
+        border-bottom: 2px solid #0056b3;
+    }
+
+    .offcanvas-body img {
+        border-radius: 50%;
+        border: 3px solid #007bff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .offcanvas-body h2 {
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .offcanvas-body .nav-link {
+        font-size: 16px;
+        color: #ffffff;
+        transition: color 0.3s ease;
+    }
+
+    .offcanvas-body .nav-link:hover {
+        color: #007bff;
+    }
+
+    /* Карточки товаров */
+    .card {
+        background: #2a2a3b;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .card-text {
+        font-size: 14px;
+        color: #b0b0b0;
+    }
+
+    .btn-primary {
+        background: #007bff;
+        border: none;
+        border-radius: 25px;
+        padding: 5px 15px;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+    }
+
+    /* Модальное окно */
+    .modal-content {
+        background: #2a2a3b;
+        border-radius: 10px;
+        color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-header {
+        background: #007bff;
+        color: #ffffff;
+        border-bottom: none;
+    }
+
+    .modal-footer {
+        border-top: none;
+    }
+
+    /* Часы и дата */
+    #clock, #date {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Кнопка drawer */
+    .drawer-btn {
+        border: 2px solid #007bff;
+        background: #1e1e2f;
+        color: #007bff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .drawer-btn:hover {
+        background: #007bff;
+        color: #ffffff;
+        border-color: #0056b3;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        nav.navbar {
+            justify-content: center;
+        }
+
+        .card-img-top {
+            height: 150px;
+        }
+
+        #clock, #date {
+            font-size: 20px;
+        }
+    }
+   
+/* Цена на карточках */
+.card h6 {
+    color: #ffffff; /* Белый цвет текста */
+    transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+/* Эффект при наведении */
+.card:hover h6 {
+    color: #007bff; /* Синий цвет при наведении */
+}
+  
+/* Navbar стили */
+nav.navbar {
+    background-color: #1e1e2f; /* Черный фон */
+    border-bottom: 2px solid #007bff; /* Синяя нижняя граница */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Легкая тень */
+    height: 70px; /* Увеличение высоты navbar */
+    padding: 10px 20px; /* Отступы */
+}
+
+nav.navbar .navbar-brand {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff; /* Белый текст */
+}
+
+nav.navbar .nav-link {
+    color: #ffffff; /* Белый текст */
+    transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+nav.navbar .nav-link:hover {
+    color: #007bff; /* Синий текст при наведении */
+}
+
+nav.navbar .btn {
+    border-radius: 20px;
+    font-size: 10px;
+    padding: 1px 15px;
+    background: #007bff; /* Синий фон кнопки */
+    color: #ffffff; /* Белый текст кнопки */
+    border: none;
+    top: 10px; /* Положение кнопки */
+}
+
+nav.navbar .btn:hover {
+    background: #0056b3; /* Темно-синий фон при наведении */
+}
+      
+/* Центрирование кнопок поиска и drawer */
+.navbar .container-fluid {
+    display: contents -ms-flexbox; /* Flexbox uchun */
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    height: 112%; /* Высота navbar для центрирования */
+}
+
+.drawer-btn, .search-btn {
+    margin: 2 5px; /* Отступы между кнопками */
+}
+   
+        /* Modal uchun ranglar */
+        .modal-header {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        /* Modal ichidagi matn */
+        .modal-body p {
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .modal-body h3 {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .modal-body a {
+            margin-top: 10px;
+        }
+      
+     
+        :root {
+    /* Основные переменные */
+    --navbar-bg-color: #1e1e2f; /* Фон navbar */
+    --navbar-border-color: #007bff; /* Нижняя граница navbar */
+    --navbar-text-color: #ffffff; /* Цвет текста в navbar */
+    --navbar-hover-color: #007bff; /* Цвет текста при наведении */
+    --button-bg-color: #007bff; /* Фон кнопок */
+    --button-hover-bg-color: #0056b3; /* Фон кнопок при наведении */
+    --button-text-color: #ffffff; /* Цвет текста кнопок */
+    --card-bg-color: #2a2a3b; /* Фон карточек */
+    --card-hover-bg-color: #f8f9fa; /* Фон карточек при наведении */
+    --card-text-color: #ffffff; /* Цвет текста карточек */
+    --card-hover-text-color: #007bff; /* Цвет текста карточек при наведении */
+}
+
+/* Navbar стили */
+nav.navbar {
+    background-color: var(--navbar-bg-color);
+    border-bottom: 2px solid var(--navbar-border-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    height: 70px;
+    padding: 10px 20px;
+}
+
+nav.navbar .navbar-brand {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--navbar-text-color);
+    transition: color 0.3s ease;
+}
+
+nav.navbar .navbar-brand:hover {
+    color: var(--navbar-hover-color);
+}
+
+nav.navbar .nav-link {
+    color: var(--navbar-text-color);
+    transition: color 0.3s ease;
+}
+
+nav.navbar .nav-link:hover {
+    color: var(--navbar-hover-color);
+}
+
+nav.navbar .btn {
+    border-radius: 25px;
+    font-size: 16px;
+    padding: 5px 15px;
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav.navbar .btn:hover {
+    background: var(--button-hover-bg-color);
+    color: var(--button-text-color);
+}
+
+/* Карточки товаров */
+.card {
+    background: var(--card-bg-color);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    background-color: var(--card-hover-bg-color);
+}
+
+.card h6 {
+    color: var(--card-text-color);
+    transition: color 0.3s ease;
+}
+
+.card:hover h6 {
+    color: var(--card-hover-text-color);
+}
+        
     </style>
 </head>
 
@@ -200,12 +959,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light text-center center">
       <div class="container-fluid">
-        <!-- Drawer Trigger -->
-        <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <div class="d-flex justify-content-center my-3">
+    <button class="btn btn-outline-dark drawer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
     
         <!-- Market Place nomi -->
         <h1 class="navbar-brand mx-auto text-center" style="font-size: 28px; font-weight: bold; color: #000000;">Market Place</h1>
@@ -364,17 +1124,27 @@ searchInput.addEventListener("input", function () {
         <h5 class="offcanvas-title text-black" id="offcanvasNavbarLabel" style="font-size: 16px;">Market Place</h5>
         <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body d-flex flex-column align-items-center justify-content-center">
-        <!-- Centered Image with Line Below -->
-        <img src="free-user-icon-3296-thumb.png" height="200" width="200" class="mb-2" alt="Centered Image">
-        <h2 style="color: green;">Normal Account</h2>
-        <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
+    
+        <!-- Drawer ichida foydalanuvchi nomini ko'rsatish uchun joy -->
+<div class="offcanvas-body d-flex flex-column align-items-center justify-content-center">
+   <div id="date" class="text-center mb-1" style="font-size: 18px; font-weight: bold; color: #6c757d;"></div>
+  <div id="clock" class="text-center mb-3" style="font-size: 24px; font-weight: bold; color: #007bff;"></div>
+    <!-- Hacker rasmi -->
+    <img src="images (1).jpg" height="200" width="200" class="mb-2" alt="Hacker Image">
+    <!-- Foydalanuvchi nomi -->
+     
+    <h5 id="userNameDisplay" class="text-black mt-3"></h5>
+    <hr style="width: 100%; border: 1px solid black; margin: 3px 0;">
+    <h2 style="color: green;" class="center text-center">Normal Account</h2>
+</div>
+        
+        
 
         <ul class="navbar-nav w-100">
             <!-- Log Out with Line Below -->
             <li class="nav-item">
                 <a class="nav-link active text-black" aria-current="page" href="sign.up.html" style="font-size: 14px;">
-                    <img src="3596149.png" alt="Logo" style="height: 20px; width: 20px;"> Log Out
+                    <img src="3596149.png" alt="Logo" style="height: 20px; width: 20px;" class="center text-center"> Log Out
                 </a>
                 <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
             </li>
@@ -382,24 +1152,24 @@ searchInput.addEventListener("input", function () {
             <!-- Grouped Telegram and YouTube Channels -->
             <li class="nav-item">
                 <a class="nav-link text-black" target="_blank" href="https://t.me/MarketPlace_204" style="font-size: 14px;">
-                    <img src="images.png" alt="Logo" style="height: 20px; width: 20px;"> Our Telegram Channel
+                    <img src="images.png" alt="Logo" style="height: 20px; width: 20px;" class="center text-center"> Our Telegram Channel
                 </a>
                 <a class="nav-link text-black" target="_blank" href="www.youtube.com/@ZeroX-p6i" style="font-size: 14px;">
-                    <img src="2111795.png" alt="Logo" style="height: 20px; width: 20px;"> YouTube Channel
+                    <img src="2111795.png" alt="Logo" style="height: 20px; width: 20px;" class="center text-center"> YouTube Channel
                 </a>
                 <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
             </li>
 
             <li class="nav-item mt-3">
                 <a class="nav-link text-black" href="#" data-bs-toggle="modal" data-bs-target="#ideaModal" style="font-size: 14px;">
-                  <img src="comment.png" alt="Logo" style="height: 20px; width: 20px;"> Give Your Idea!
+                  <img src="comment.png" alt="Logo" style="height: 20px; width: 20px;" class="center text-center"> Give Your Idea!
                 </a>
               </li> 
               <div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="ideaModalLabel">Give Your Idea!</h5>
+                      <h5 class="modal-title" id="ideaModalLabel " class="center text-center">Give Your Idea!</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -456,6 +1226,27 @@ searchInput.addEventListener("input", function () {
                     alert('Please write something before submitting.');
                   }
                 });
+
+                // Soatni yangilash funksiyasi
+function updateClock() {
+    const now = new Date();
+    const [hours, minutes, seconds] = [
+        now.getHours().toString().padStart(2, '0'),
+        now.getMinutes().toString().padStart(2, '0'),
+        now.getSeconds().toString().padStart(2, '0')
+    ];
+    const separator = now.getSeconds() % 2 === 0 ? ':' : ' '; // Yonib-o'chadigan separator
+    document.querySelector('#clock').textContent = `${hours}${separator}${minutes}${separator}${seconds}`;
+}
+
+// Sahifa yuklanganda soatni ishga tushirish
+document.addEventListener('DOMContentLoaded', () => {
+    setInterval(updateClock, 1000); // Har soniyada yangilanadi
+
+    // Foydalanuvchi nomini localStorage'dan olish va drawer ichida ko'rsatish
+    const userName = localStorage.getItem('username') || 'Mehmon';
+    document.querySelector('#userNameDisplay').textContent = `Xush kelibsiz, ${userName}!`;
+});
               </script>  
   <script>
         ideaForm.addEventListener('submit', function (event) {
@@ -498,6 +1289,8 @@ searchInput.addEventListener("input", function () {
         alert('Please write something before submitting.');
       }
     });
+
+    
   </script>
         </ul>
     </div>
@@ -785,8 +1578,6 @@ Features: DLSS 4, Ray Tracing, PCIe 5.0 support
 </div>
 <!-- Drawer ichida foydalanuvchi nomini ko'rsatish uchun joy -->
 <div class="offcanvas-body d-flex flex-column align-items-center justify-content-center">
-    <!-- Centered Image -->
-    <img src="free-user-icon-3296-thumb.png" height="200" width="200" class="mb-2" alt="User Image">
     <!-- Foydalanuvchi nomi -->
     <h5 id="userNameDisplay" class="text-black mt-3"></h5>
     <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
@@ -800,6 +1591,36 @@ Features: DLSS 4, Ray Tracing, PCIe 5.0 support
   } else {
     document.getElementById('userNameDisplay').textContent = 'Xush kelibsiz, Mehmon!';
   }
+ 
+  // Sana va vaqtni yangilash funksiyasi
+function updateClock() {
+    const now = new Date();
+    const [hours, minutes, seconds] = [
+        now.getHours().toString().padStart(2, '0'),
+        now.getMinutes().toString().padStart(2, '0'),
+        now.getSeconds().toString().padStart(2, '0')
+    ];
+    const separator = now.getSeconds() % 2 === 0 ? ':' : ' '; // Yonib-o'chadigan separator
+
+    const [day, month, year] = [
+        now.getDate().toString().padStart(2, '0'),
+        (now.getMonth() + 1).toString().padStart(2, '0'), // Oy 0 dan boshlanadi, shuning uchun +1
+        now.getFullYear()
+    ];
+
+    document.querySelector('#clock').textContent = `${hours}${separator}${minutes}${separator}${seconds}`;
+    document.querySelector('#date').textContent = `${day}-${month}-${year}`;
+}
+
+// Sahifa yuklanganda soatni ishga tushirish
+document.addEventListener('DOMContentLoaded', () => {
+    setInterval(updateClock, 1000); // Har soniyada yangilanadi
+
+    // Foydalanuvchi nomini localStorage'dan olish va drawer ichida ko'rsatish
+    const userName = localStorage.getItem('username') || 'Mehmon';
+    document.querySelector('#userNameDisplay').textContent = `Xush kelibsiz, ${userName}!`;
+});
+   
 </script>
 </body>
 </html>
