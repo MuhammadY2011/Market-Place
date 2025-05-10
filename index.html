@@ -787,7 +787,6 @@ nav.navbar .btn {
     background: #007bff; /* Синий фон кнопки */
     color: #ffffff; /* Белый текст кнопки */
     border: none;
-    top: 10px; /* Положение кнопки */
 }
 
 nav.navbar .btn:hover {
@@ -830,91 +829,7 @@ nav.navbar .btn:hover {
         .modal-body a {
             margin-top: 10px;
         }
-      
-     
-        :root {
-    /* Основные переменные */
-    --navbar-bg-color: #1e1e2f; /* Фон navbar */
-    --navbar-border-color: #007bff; /* Нижняя граница navbar */
-    --navbar-text-color: #ffffff; /* Цвет текста в navbar */
-    --navbar-hover-color: #007bff; /* Цвет текста при наведении */
-    --button-bg-color: #007bff; /* Фон кнопок */
-    --button-hover-bg-color: #0056b3; /* Фон кнопок при наведении */
-    --button-text-color: #ffffff; /* Цвет текста кнопок */
-    --card-bg-color: #2a2a3b; /* Фон карточек */
-    --card-hover-bg-color: #f8f9fa; /* Фон карточек при наведении */
-    --card-text-color: #ffffff; /* Цвет текста карточек */
-    --card-hover-text-color: #007bff; /* Цвет текста карточек при наведении */
-}
 
-/* Navbar стили */
-nav.navbar {
-    background-color: var(--navbar-bg-color);
-    border-bottom: 2px solid var(--navbar-border-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    height: 70px;
-    padding: 10px 20px;
-}
-
-nav.navbar .navbar-brand {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--navbar-text-color);
-    transition: color 0.3s ease;
-}
-
-nav.navbar .navbar-brand:hover {
-    color: var(--navbar-hover-color);
-}
-
-nav.navbar .nav-link {
-    color: var(--navbar-text-color);
-    transition: color 0.3s ease;
-}
-
-nav.navbar .nav-link:hover {
-    color: var(--navbar-hover-color);
-}
-
-nav.navbar .btn {
-    border-radius: 25px;
-    font-size: 16px;
-    padding: 5px 15px;
-    background: var(--button-bg-color);
-    color: var(--button-text-color);
-    border: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav.navbar .btn:hover {
-    background: var(--button-hover-bg-color);
-    color: var(--button-text-color);
-}
-
-/* Карточки товаров */
-.card {
-    background: var(--card-bg-color);
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
-    background-color: var(--card-hover-bg-color);
-}
-
-.card h6 {
-    color: var(--card-text-color);
-    transition: color 0.3s ease;
-}
-
-.card:hover h6 {
-    color: var(--card-hover-text-color);
-}
-        
     </style>
 </head>
 
@@ -1206,45 +1121,34 @@ searchInput.addEventListener("input", function () {
                     ideaForm.dispatchEvent(new Event('submit')); // Formani yuborish
                   }
                 });
-              
-               // Formni yuborish funksiyasi
-const ideaModal = document.getElementById('ideaModal'); // Modalni olish
 
-// Modal ochilganda textarea'ga fokus berish  
-ideaModal.addEventListener('shown.bs.modal', function () {
-    // Fokusni kechiktirish (mobil qurilmalarda ishlashi uchun)
-    setTimeout(() => {
-        userIdeaInput.focus(); // Fokusni textarea'ga berish
-    }, 300); // Kechikish vaqtini biroz oshirish
-});
-
-// Enter tugmasini bosganda fikrni yuborish
+                // Enter для отправки формы
 userIdeaInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter' && !event.shiftKey) {
-        event.preventDefault(); // Enter tugmasi yangi qatorga o'tmasligi uchun
-        ideaForm.dispatchEvent(new Event('submit')); // Formani yuborish
+        event.preventDefault(); // Предотвращаем переход на новую строку
+        ideaForm.dispatchEvent(new Event('submit')); // Отправляем форму
     }
 });
-
-// Formni yuborish va fikrni saqlash
-ideaForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Sahifani qayta yuklanishining oldini olish
-    const ideaText = userIdeaInput.value.trim();
-
-    if (ideaText) {
-        // Fikrni localStorage-ga saqlash
-        let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
-        ideas.push(ideaText);
-        localStorage.setItem('ideas', JSON.stringify(ideas));
-
-        alert('Your idea has been submitted!');
-        userIdeaInput.value = ''; // Maydonni tozalash
-        const modalInstance = bootstrap.Modal.getInstance(ideaModal);
-        modalInstance.hide(); // Modalni yopish
-    } else {
-        alert('Please write something before submitting.');
-    }
-});
+              
+                // Formni yuborish va fikrni saqlash
+                ideaForm.addEventListener('submit', function (event) {
+                  event.preventDefault(); // Sahifani qayta yuklanishining oldini olish
+                  const ideaText = userIdeaInput.value.trim();
+              
+                  if (ideaText) {
+                    // Fikrni localStorage-ga saqlash
+                    let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+                    ideas.push(ideaText);
+                    localStorage.setItem('ideas', JSON.stringify(ideas));
+              
+                    alert('Your idea has been submitted!');
+                    userIdeaInput.value = ''; // Maydonni tozalash
+                    const modalInstance = bootstrap.Modal.getInstance(ideaModal);
+                    modalInstance.hide(); // Modalni yopish
+                  } else {
+                    alert('Please write something before submitting.');
+                  }
+                });
 
                 // Soatni yangilash funksiyasi
 function updateClock() {
@@ -1288,6 +1192,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ideaModal').addEventListener('shown.bs.modal', function () {
         document.getElementById('userIdea').focus();
     });
+
+    ideaForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Предотвращаем перезагрузку страницы
+    const ideaText = userIdeaInput.value.trim();
+
+    if (ideaText) {
+        // Сохраняем идею в localStorage
+        let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+        ideas.push(ideaText);
+        localStorage.setItem('ideas', JSON.stringify(ideas));
+
+        alert('Your idea has been submitted!');
+        userIdeaInput.value = ''; // Очищаем поле ввода
+        const modalInstance = bootstrap.Modal.getInstance(ideaModal);
+        modalInstance.hide(); // Закрываем модальное окно
+    } else {
+        alert('Please write something before submitting.');
+    }
+});
 </script>
 
   <script>
