@@ -1207,25 +1207,44 @@ searchInput.addEventListener("input", function () {
                   }
                 });
               
-                // Formni yuborish va fikrni saqlash
-                ideaForm.addEventListener('submit', function (event) {
-                  event.preventDefault(); // Sahifani qayta yuklanishining oldini olish
-                  const ideaText = userIdeaInput.value.trim();
-              
-                  if (ideaText) {
-                    // Fikrni localStorage-ga saqlash
-                    let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
-                    ideas.push(ideaText);
-                    localStorage.setItem('ideas', JSON.stringify(ideas));
-              
-                    alert('Your idea has been submitted!');
-                    userIdeaInput.value = ''; // Maydonni tozalash
-                    const modalInstance = bootstrap.Modal.getInstance(ideaModal);
-                    modalInstance.hide(); // Modalni yopish
-                  } else {
-                    alert('Please write something before submitting.');
-                  }
-                });
+               // Formni yuborish funksiyasi
+const ideaModal = document.getElementById('ideaModal'); // Modalni olish
+
+// Modal ochilganda textarea'ga fokus berish  
+ideaModal.addEventListener('shown.bs.modal', function () {
+    // Fokusni kechiktirish (mobil qurilmalarda ishlashi uchun)
+    setTimeout(() => {
+        userIdeaInput.focus(); // Fokusni textarea'ga berish
+    }, 300); // Kechikish vaqtini biroz oshirish
+});
+
+// Enter tugmasini bosganda fikrni yuborish
+userIdeaInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault(); // Enter tugmasi yangi qatorga o'tmasligi uchun
+        ideaForm.dispatchEvent(new Event('submit')); // Formani yuborish
+    }
+});
+
+// Formni yuborish va fikrni saqlash
+ideaForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Sahifani qayta yuklanishining oldini olish
+    const ideaText = userIdeaInput.value.trim();
+
+    if (ideaText) {
+        // Fikrni localStorage-ga saqlash
+        let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+        ideas.push(ideaText);
+        localStorage.setItem('ideas', JSON.stringify(ideas));
+
+        alert('Your idea has been submitted!');
+        userIdeaInput.value = ''; // Maydonni tozalash
+        const modalInstance = bootstrap.Modal.getInstance(ideaModal);
+        modalInstance.hide(); // Modalni yopish
+    } else {
+        alert('Please write something before submitting.');
+    }
+});
 
                 // Soatni yangilash funksiyasi
 function updateClock() {
