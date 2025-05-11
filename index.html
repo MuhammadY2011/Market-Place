@@ -829,6 +829,90 @@ nav.navbar .btn:hover {
         .modal-body a {
             margin-top: 10px;
         }
+        
+    /* Тёмная тема */
+    .dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .dark-mode nav.navbar {
+        background-color: #1e1e1e;
+        border-bottom: 2px solid #ffffff;
+    }
+
+    .dark-mode .card {
+        background-color: #1e1e1e;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+    }
+
+    .dark-mode .btn {
+        background-color: #333333;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+    }
+
+    .dark-mode .btn:hover {
+        background-color: #555555;
+    }
+
+    .dark-mode .offcanvas {
+        background: #1e1e1e;
+        color: #ffffff;
+    }
+
+    .dark-mode .offcanvas-header {
+        background-color: #333333;
+        color: #ffffff;
+    }
+
+    .dark-mode .modal-content {
+        background-color: #1e1e1e;
+        color: #ffffff;
+    }
+
+    /* Светлая тема */
+    .light-mode {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    .light-mode nav.navbar {
+        background-color: #f8f9fa;
+        border-bottom: 2px solid #000000;
+    }
+
+    .light-mode .card {
+        background-color: #ffffff;
+        color: #000000;
+        border: 1px solid #000000;
+    }
+
+    .light-mode .btn {
+        background-color: #f8f9fa;
+        color: #000000;
+        border: 1px solid #000000;
+    }
+
+    .light-mode .btn:hover {
+        background-color: #e0e0e0;
+    }
+
+    .light-mode .offcanvas {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    .light-mode .offcanvas-header {
+        background-color: #f8f9fa;
+        color: #000000;
+    }
+
+    .light-mode .modal-content {
+        background-color: #ffffff;
+        color: #000000;
+    }
 
     </style>
 </head>
@@ -1080,6 +1164,13 @@ searchInput.addEventListener("input", function () {
                   <img src="comment.png" alt="Logo" style="height: 20px; width: 20px;" class="center text-center"> Give Your Idea!
                 </a>
               </li> 
+
+              <li class="nav-item mt-3">
+    <button id="darkModeBtn" class="btn btn-dark w-100" style="font-size: 14px;">Dark Mode</button>
+</li>
+<li class="nav-item mt-3">
+    <button id="lightModeBtn" class="btn btn-light w-100" style="font-size: 14px;">Light Mode</button>
+</li>
               <div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
@@ -1561,7 +1652,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // Foydalanuvchi nomini localStorage'dan olish va drawer ichida ko'rsatish
     const userName = localStorage.getItem('username') || 'Mehmon';
     document.querySelector('#userNameDisplay').textContent = `Xush kelibsiz, ${userName}!`;
-});
+}); 
+
+// Обработчик отправки формы
+ideaForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Предотвращаем перезагрузку страницы
+    const ideaText = userIdeaInput.value.trim();
+
+    if (ideaText) {
+        // Сохраняем сообщение в localStorage
+        let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+        ideas.push({ text: ideaText, date: new Date().toLocaleString() });
+        localStorage.setItem('ideas', JSON.stringify(ideas));
+
+        alert('Your idea has been submitted!');
+        userIdeaInput.value = ''; // Очищаем поле ввода
+        const modalInstance = bootstrap.Modal.getInstance(ideaModal);
+        modalInstance.hide(); // Закрываем модальное окно
+    } else {
+        alert('Please write something before submitting.');
+    }
+}); 
+
+// Кнопки для переключения темы
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    const lightModeBtn = document.getElementById('lightModeBtn');
+
+    // Функция для включения тёмной темы
+    darkModeBtn.addEventListener('click', () => {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+    });
+
+    // Функция для включения светлой темы
+    lightModeBtn.addEventListener('click', () => {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+    });
    
 </script>
 </body>
