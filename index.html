@@ -963,6 +963,136 @@ nav.navbar .btn:hover {
             display: block;
         }
 
+
+         /* 1. Body Background Gradient */
+  body {
+    background: linear-gradient(to bottom, #1e1e2f, #2a2a3b);
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* 2. Navbar Shadow and Padding */
+  nav.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+  }
+
+  /* 3. Navbar Brand Styling */
+  nav.navbar .navbar-brand {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  /* 4. Button Hover Effect */
+  .btn-primary:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+  }
+
+  /* 5. Card Hover Effect */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+  }
+
+  /* 6. Card Title Styling */
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  /* 7. Card Text Styling */
+  .card-text {
+    font-size: 14px;
+    color: #b0b0b0;
+  }
+
+  /* 8. Modal Header Background */
+  .modal-header {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+
+  /* 9. Modal Content Shadow */
+  .modal-content {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 10. Offcanvas Background Gradient */
+  .offcanvas {
+    background: linear-gradient(to right, #1e1e2f, #2a2a3b);
+    color: #ffffff;
+  }
+
+  /* 11. Offcanvas Header Styling */
+  .offcanvas-header {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+
+  /* 12. Offcanvas Image Styling */
+  .offcanvas-body img {
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 13. Clock and Date Styling */
+  #clock, #date {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 14. Drawer Button Styling */
+  .drawer-btn {
+    border: 2px solid #007bff;
+    background: #1e1e2f;
+    color: #007bff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .drawer-btn:hover {
+    background: #007bff;
+    color: #ffffff;
+    border-color: #0056b3;
+  }
+
+  /* 15. Tooltip Styling */
+  .tooltip {
+    display: none;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .dollar-btn-container:hover .tooltip {
+    display: block;
+  }
+
+  /* 16. Search Input Styling */
+  #searchInput {
+    border-radius: 25px;
+    border: 1px solid #ced4da;
+    padding: 10px 15px;
+    transition: border-color 0.3s ease;
+  }
+
+  #searchInput:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
     </style>
 </head>
 
@@ -1020,16 +1150,8 @@ nav.navbar .btn:hover {
     
     <!-- Market Place Title with Dollar Icon -->
     <div class="d-flex align-items-center mx-auto">
-      <h1 class="navbar-brand me-2" style="font-size: 38px; font-weight: bold; color: #000000;">Market Place</h1>
-      <div class="dollar-btn-container">
-        <a href="https://neal.fun/spend/">
-          <button class="dollar-btn">
-            <i>&#36;</i> <!-- Dollar Icon -->
-          </button>
-        </a>
-        <div class="tooltip">Хочешь потратить миллион долларов, но за бесплатно? Тогда жми сюда!</div>
-      </div>
-    </div>
+      <h1 class="navbar-brand me-2" style="font-size: 30px; font-weight: bold; color: #000000;">Market Place</h1>
+      
 
     <!-- Search Button -->
     <div class="d-flex justify-content-end">
@@ -1060,122 +1182,7 @@ nav.navbar .btn:hover {
 
 
 
-<script>
-  // Mahsulotlar ro'yxati
-  const products = [
-    { 
-      name: "MackBook 16 air", 
-      description: "16.2-inch Liquid Retina XDR", 
-      image: "1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" 
-    },
-    { 
-      name: "Iphone 14 Pro Max", 
-      description: "6.7-inch Super Retina XDR OLED", 
-      image: "0a8b0da0-31d6-45ce-bdb3-35afeb7db04c.03e73e241203526c7fed6b34bda121c2.webp" 
-    },
-    { 
-      name: "Asus Zephyrs G14", 
-      description: "Intel® Core™ Ultra 9 185H", 
-      image: "1-3-768x768.png" 
-    },
-    { 
-      name: "Play station Steering Wheel", 
-      description: "Force feedback, 900-degree rotation", 
-      image: "61IwZwlTopL._AC_UF1000,1000_QL80_.jpg" 
-    },
-    { 
-      name: "Air Pods Max", 
-      description: "Stainless steel frame with breathable knit mesh", 
-      image: "besprovodnye-naushniki-apple-airpods-max-58619-4.jpeg" 
-    },
-    { 
-      name: "Nintendo Switch", 
-      description: "6.2-inch LCD touchscreen", 
-      image: "51Gz7IimgoL._SL1024_.jpg" 
-    },
-    { 
-      name: "Giroskuter", 
-      description: "Self-balancing with gyroscopic sensors", 
-      image: "20160719070817r9hs.jpg" 
-    },
-    { 
-      name: "Ipad 12 pro", 
-      description: "12.9-inch Liquid Retina XDR", 
-      image: "u2.webp" 
-    },
-    { 
-      name: "Play Station 4", 
-      description: "500GB, 1TB storage options", 
-      image: "PS4-Console-wDS4.jpg" 
-    },
-    { 
-      name: "Play Station 5", 
-      description: "4K gaming, 120fps support", 
-      image: "ps5-vs-ps5-pro-carousel-gallery-bild-1-data" 
-    },
-  ];
 
-  // Qidiruv maydoniga yozilgan matnni qayta ishlash
-searchInput.addEventListener("input", function () {
-  const query = searchInput.value.toLowerCase();
-  searchResults.innerHTML = ""; // Eski natijalarni tozalash
-
-  if (query) {
-    const filteredProducts = products.filter(product =>
-      product.name.toLowerCase().includes(query)
-    );
-
-    if (filteredProducts.length > 0) {
-      filteredProducts.forEach(product => {
-        const listItem = document.createElement("li");
-        listItem.className = "list-group-item d-flex align-items-center";
-        listItem.style.cursor = "pointer";
-
-        // Mahsulot rasmi
-        const productImage = document.createElement("img");
-        productImage.src = product.image;
-        productImage.alt = product.name;
-        productImage.style.width = "50px";
-        productImage.style.height = "50px";
-        productImage.style.marginRight = "15px";
-        productImage.style.borderRadius = "5px";
-
-        // Mahsulot nomi va tavsifi
-        const productInfo = document.createElement("div");
-        const productName = document.createElement("h6");
-        productName.textContent = product.name;
-        productName.style.margin = "0";
-        const productDescription = document.createElement("p");
-        productDescription.textContent = product.description;
-        productDescription.style.margin = "0";
-        productDescription.style.fontSize = "12px";
-        productDescription.style.color = "gray";
-
-        productInfo.appendChild(productName);
-        productInfo.appendChild(productDescription);
-
-        listItem.appendChild(productImage);
-        listItem.appendChild(productInfo);
-
-        // Mahsulot ustiga bosilganda asosiy menyudagi gadjetga o'tish
-        listItem.addEventListener("click", function () {
-          const targetElement = document.getElementById(product.name.toLowerCase().replace(/\s+/g, ""));
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-        });
-
-        searchResults.appendChild(listItem);
-      });
-    } else {
-      const noResult = document.createElement("li");
-      noResult.className = "list-group-item text-muted";
-      noResult.textContent = "No results found.";
-      searchResults.appendChild(noResult);
-    }
-  }
-});
-</script>
     </div>
 </nav>
 
@@ -1193,7 +1200,7 @@ searchInput.addEventListener("input", function () {
     <!-- Hacker rasmi -->
     <img src="images (1).jpg" height="150" width="150" class="mb-2" alt="Hacker Image">
     <!-- Foydalanuvchi nomi -->
-    <h5 id="userNameDisplay" class="text-black mt-3"></h5>
+    <h5 id="userNameDisplay" class="text-black mt-3" style="font-size: large;"></h5>
 </div>  
         <ul class="navbar-nav w-100">
             <!-- Log Out with Line Below -->
@@ -1285,107 +1292,7 @@ searchInput.addEventListener("input", function () {
     </div>
 </div>
 
-<script>
-     const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeather API key
-    const cityInput = document.getElementById('cityInput');
-    const citySuggestions = document.getElementById('citySuggestions');
 
-    // Fetch city suggestions
-    cityInput.addEventListener('input', async () => {
-        const query = cityInput.value.trim();
-        citySuggestions.innerHTML = ''; // Clear previous suggestions
-
-        if (query.length > 0) {
-            try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&appid=${apiKey}&units=metric`);
-                if (response.ok) {
-                    const data = await response.json();
-                    const cities = data.list;
-
-                    cities.forEach(city => {
-                        const listItem = document.createElement('li');
-                        listItem.className = 'list-group-item';
-                        listItem.textContent = `${city.name}, ${city.sys.country}`;
-                        listItem.style.cursor = 'pointer';
-
-                        // On city click, show weather details
-                        listItem.addEventListener('click', () => {
-                            showWeatherDetails(city);
-                        });
-
-                        citySuggestions.appendChild(listItem);
-                    });
-                } else {
-                    const noResult = document.createElement('li');
-                    noResult.className = 'list-group-item text-muted';
-                    noResult.textContent = 'No cities found.';
-                    citySuggestions.appendChild(noResult);
-                }
-            } catch (error) {
-                console.error('Error fetching city suggestions:', error);
-            }
-        }
-    });
-
-    // Handle "Enter" key press for mobile and tablet users
-    cityInput.addEventListener('keydown', async (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent form submission or default behavior
-            const query = cityInput.value.trim();
-            citySuggestions.innerHTML = ''; // Clear previous suggestions
-
-            if (query.length > 0) {
-                try {
-                    const response = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&appid=${apiKey}&units=metric`);
-                    if (response.ok) {
-                        const data = await response.json();
-                        const cities = data.list;
-
-                        cities.forEach(city => {
-                            const listItem = document.createElement('li');
-                            listItem.className = 'list-group-item';
-                            listItem.textContent = `${city.name}, ${city.sys.country}`;
-                            listItem.style.cursor = 'pointer';
-
-                            // On city click, show weather details
-                            listItem.addEventListener('click', () => {
-                                showWeatherDetails(city);
-                            });
-
-                            citySuggestions.appendChild(listItem);
-                        });
-                    } else {
-                        const noResult = document.createElement('li');
-                        noResult.className = 'list-group-item text-muted';
-                        noResult.textContent = 'No cities found.';
-                        citySuggestions.appendChild(noResult);
-                    }
-                } catch (error) {
-                    console.error('Error fetching city suggestions:', error);
-                }
-            }
-        }
-    });
-
-    // Show weather details
-    function showWeatherDetails(city) {
-        const cityName = document.getElementById('cityName');
-        const temperature = document.getElementById('temperature');
-        const weatherDescription = document.getElementById('weatherDescription');
-
-        cityName.textContent = `${city.name}, ${city.sys.country}`;
-        temperature.textContent = `Temperature: ${city.main.temp}°C`;
-        weatherDescription.textContent = `Weather: ${city.weather[0].description}`;
-
-        // Close the search modal and open the details modal
-        const weatherModal = bootstrap.Modal.getInstance(document.getElementById('weatherModal'));
-        weatherModal.hide();
-
-        const weatherDetailsModal = new bootstrap.Modal(document.getElementById('weatherDetailsModal'));
-        weatherDetailsModal.show();
-    }
-
-</script>
 
  <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -1399,6 +1306,13 @@ searchInput.addEventListener("input", function () {
 <li class="nav-item mt-3">
     <button id="lightModeBtn" class="btn btn-light w-100" style="font-size: 14px;">Light Mode</button>
 </li>
+<a href="https://neal.fun/spend/">
+  <li class="nav-item mt-3">
+      <button class="btn btn-light w-100" style="font-size: 14px; color: #28a745;">
+        $Spend money$
+      </button>
+  </li>
+</a>
           </ul>
               <div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -1711,6 +1625,139 @@ Features: DLSS 4, Ray Tracing, PCIe 5.0 support
     <hr style="width: 100%; border: 1px solid black; margin: 5px 0;">
 </div>
 
+
+
+<script>
+  // Function to update the clock and date
+  function updateClockAndDate() {
+    const now = new Date();
+
+    // Format time
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    const separator = now.getSeconds() % 2 === 0 ? ':' : ':'; // Blinking separator
+
+    // Format date
+    const day = now.getDate().toString().padStart(2, '0');
+    const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-indexed
+    const year = now.getFullYear();
+
+    // Update the clock and date elements
+    document.getElementById('clock').textContent = `${hours}${separator}${minutes}${separator}${seconds}`;
+    document.getElementById('date').textContent = `${day}-${month}-${year}`;
+  }
+
+  // Start the clock and date update
+  document.addEventListener('DOMContentLoaded', () => {
+    updateClockAndDate(); // Initial call
+    setInterval(updateClockAndDate, 1000); // Update every second
+  });
+</script>
+
+<script>
+     const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeather API key
+    const cityInput = document.getElementById('cityInput');
+    const citySuggestions = document.getElementById('citySuggestions');
+
+    // Fetch city suggestions
+    cityInput.addEventListener('input', async () => {
+        const query = cityInput.value.trim();
+        citySuggestions.innerHTML = ''; // Clear previous suggestions
+
+        if (query.length > 0) {
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&appid=${apiKey}&units=metric`);
+                if (response.ok) {
+                    const data = await response.json();
+                    const cities = data.list;
+
+                    cities.forEach(city => {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'list-group-item';
+                        listItem.textContent = `${city.name}, ${city.sys.country}`;
+                        listItem.style.cursor = 'pointer';
+
+                        // On city click, show weather details
+                        listItem.addEventListener('click', () => {
+                            showWeatherDetails(city);
+                        });
+
+                        citySuggestions.appendChild(listItem);
+                    });
+                } else {
+                    const noResult = document.createElement('li');
+                    noResult.className = 'list-group-item text-muted';
+                    noResult.textContent = 'No cities found.';
+                    citySuggestions.appendChild(noResult);
+                }
+            } catch (error) {
+                console.error('Error fetching city suggestions:', error);
+            }
+        }
+    });
+
+    // Handle "Enter" key press for mobile and tablet users
+    cityInput.addEventListener('keydown', async (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission or default behavior
+            const query = cityInput.value.trim();
+            citySuggestions.innerHTML = ''; // Clear previous suggestions
+
+            if (query.length > 0) {
+                try {
+                    const response = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&appid=${apiKey}&units=metric`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        const cities = data.list;
+
+                        cities.forEach(city => {
+                            const listItem = document.createElement('li');
+                            listItem.className = 'list-group-item';
+                            listItem.textContent = `${city.name}, ${city.sys.country}`;
+                            listItem.style.cursor = 'pointer';
+
+                            // On city click, show weather details
+                            listItem.addEventListener('click', () => {
+                                showWeatherDetails(city);
+                            });
+
+                            citySuggestions.appendChild(listItem);
+                        });
+                    } else {
+                        const noResult = document.createElement('li');
+                        noResult.className = 'list-group-item text-muted';
+                        noResult.textContent = 'No cities found.';
+                        citySuggestions.appendChild(noResult);
+                    }
+                } catch (error) {
+                    console.error('Error fetching city suggestions:', error);
+                }
+            }
+        }
+    });
+
+    // Show weather details
+    function showWeatherDetails(city) {
+        const cityName = document.getElementById('cityName');
+        const temperature = document.getElementById('temperature');
+        const weatherDescription = document.getElementById('weatherDescription');
+
+        cityName.textContent = `${city.name}, ${city.sys.country}`;
+        temperature.textContent = `Temperature: ${city.main.temp}°C`;
+        weatherDescription.textContent = `Weather: ${city.weather[0].description}`;
+
+        // Close the search modal and open the details modal
+        const weatherModal = bootstrap.Modal.getInstance(document.getElementById('weatherModal'));
+        weatherModal.hide();
+
+        const weatherDetailsModal = new bootstrap.Modal(document.getElementById('weatherDetailsModal'));
+        weatherDetailsModal.show();
+    }
+
+</script>
+
+
 <script>
   // Foydalanuvchi nomini localStorage'dan olish va drawer ichida ko'rsatish
   const userName = localStorage.getItem('username');
@@ -1944,31 +1991,120 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 
 <script>
-  // Function to update the clock and date
-  function updateClockAndDate() {
-    const now = new Date();
+  // Mahsulotlar ro'yxati
+  const products = [
+    { 
+      name: "MackBook 16 air", 
+      description: "16.2-inch Liquid Retina XDR", 
+      image: "1spacegray_3dff8d7e-8252-49a3-8e8f-d85901204995_610x_crop_center.webp" 
+    },
+    { 
+      name: "Iphone 14 Pro Max", 
+      description: "6.7-inch Super Retina XDR OLED", 
+      image: "0a8b0da0-31d6-45ce-bdb3-35afeb7db04c.03e73e241203526c7fed6b34bda121c2.webp" 
+    },
+    { 
+      name: "Asus Zephyrs G14", 
+      description: "Intel® Core™ Ultra 9 185H", 
+      image: "1-3-768x768.png" 
+    },
+    { 
+      name: "Play station Steering Wheel", 
+      description: "Force feedback, 900-degree rotation", 
+      image: "61IwZwlTopL._AC_UF1000,1000_QL80_.jpg" 
+    },
+    { 
+      name: "Air Pods Max", 
+      description: "Stainless steel frame with breathable knit mesh", 
+      image: "besprovodnye-naushniki-apple-airpods-max-58619-4.jpeg" 
+    },
+    { 
+      name: "Nintendo Switch", 
+      description: "6.2-inch LCD touchscreen", 
+      image: "51Gz7IimgoL._SL1024_.jpg" 
+    },
+    { 
+      name: "Giroskuter", 
+      description: "Self-balancing with gyroscopic sensors", 
+      image: "20160719070817r9hs.jpg" 
+    },
+    { 
+      name: "Ipad 12 pro", 
+      description: "12.9-inch Liquid Retina XDR", 
+      image: "u2.webp" 
+    },
+    { 
+      name: "Play Station 4", 
+      description: "500GB, 1TB storage options", 
+      image: "PS4-Console-wDS4.jpg" 
+    },
+    { 
+      name: "Play Station 5", 
+      description: "4K gaming, 120fps support", 
+      image: "ps5-vs-ps5-pro-carousel-gallery-bild-1-data" 
+    },
+  ];
 
-    // Format time
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    const separator = now.getSeconds() % 2 === 0 ? ':' : ':'; // Blinking separator
+  // Qidiruv maydoniga yozilgan matnni qayta ishlash
+searchInput.addEventListener("input", function () {
+  const query = searchInput.value.toLowerCase();
+  searchResults.innerHTML = ""; // Eski natijalarni tozalash
 
-    // Format date
-    const day = now.getDate().toString().padStart(2, '0');
-    const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-indexed
-    const year = now.getFullYear();
+  if (query) {
+    const filteredProducts = products.filter(product =>
+      product.name.toLowerCase().includes(query)
+    );
 
-    // Update the clock and date elements
-    document.getElementById('clock').textContent = `${hours}${separator}${minutes}${separator}${seconds}`;
-    document.getElementById('date').textContent = `${day}-${month}-${year}`;
+    if (filteredProducts.length > 0) {
+      filteredProducts.forEach(product => {
+        const listItem = document.createElement("li");
+        listItem.className = "list-group-item d-flex align-items-center";
+        listItem.style.cursor = "pointer";
+
+        // Mahsulot rasmi
+        const productImage = document.createElement("img");
+        productImage.src = product.image;
+        productImage.alt = product.name;
+        productImage.style.width = "50px";
+        productImage.style.height = "50px";
+        productImage.style.marginRight = "15px";
+        productImage.style.borderRadius = "5px";
+
+        // Mahsulot nomi va tavsifi
+        const productInfo = document.createElement("div");
+        const productName = document.createElement("h6");
+        productName.textContent = product.name;
+        productName.style.margin = "0";
+        const productDescription = document.createElement("p");
+        productDescription.textContent = product.description;
+        productDescription.style.margin = "0";
+        productDescription.style.fontSize = "12px";
+        productDescription.style.color = "gray";
+
+        productInfo.appendChild(productName);
+        productInfo.appendChild(productDescription);
+
+        listItem.appendChild(productImage);
+        listItem.appendChild(productInfo);
+
+        // Mahsulot ustiga bosilganda asosiy menyudagi gadjetga o'tish
+        listItem.addEventListener("click", function () {
+          const targetElement = document.getElementById(product.name.toLowerCase().replace(/\s+/g, ""));
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+
+        searchResults.appendChild(listItem);
+      });
+    } else {
+      const noResult = document.createElement("li");
+      noResult.className = "list-group-item text-muted";
+      noResult.textContent = "No results found.";
+      searchResults.appendChild(noResult);
+    }
   }
-
-  // Start the clock and date update
-  document.addEventListener('DOMContentLoaded', () => {
-    updateClockAndDate(); // Initial call
-    setInterval(updateClockAndDate, 1000); // Update every second
-  });
+});
 </script>
 
 </body>
