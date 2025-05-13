@@ -1150,6 +1150,12 @@ body {
             color: #6c757d;
         }
 
+        .dropdown-menu {
+    display: block !important; /* Faqat test uchun */
+    position: absolute;
+    z-index: 1050;
+}
+
     </style>
 </head>
 
@@ -1207,9 +1213,8 @@ body {
     
     <!-- Market Place Title with Dollar Icon -->
     <div class="d-flex align-items-center mx-auto">
-      <a href="https://pointerpointer.com/">
         <h1 class="navbar-brand me-2" style="font-size: 30px; font-weight: bold; color: #000000;">Market Place</h1>
-      </a>
+
       
 
     <!-- Search Button -->
@@ -1313,29 +1318,27 @@ body {
             </div>
         </div>
     </div>
-
-
-
- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Mods
-          </a>
-
-<ul class="dropdown-menu">
-             <li class="nav-item mt-3">
-    <button id="darkModeBtn" class="btn btn-dark w-100" style="font-size: 14px;">Dark Mode</button>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Mods
+    </a>
+    <ul class="dropdown-menu">
+        <li class="nav-item mt-3">
+            <button id="darkModeBtn" class="btn btn-dark w-100" style="font-size: 14px;">Dark Mode</button>
+        </li>
+        <li class="nav-item mt-3">
+            <button id="lightModeBtn" class="btn btn-light w-100" style="font-size: 14px;">Light Mode</button>
+        </li>
+        <li class="nav-item mt-3">
+            <a href="https://neal.fun/spend/" target="_blank" class="btn btn-light w-100" style="font-size: 14px; color: #28a745;">
+                $Spend money$
+            </a>
+        </li>
+    </ul>
 </li>
-<li class="nav-item mt-3">
-    <button id="lightModeBtn" class="btn btn-light w-100" style="font-size: 14px;">Light Mode</button>
-</li>
-<a href="https://neal.fun/spend/" target="_blank">
-  <li class="nav-item mt-3">
-      <button class="btn btn-light w-100" style="font-size: 14px; color: #28a745;">
-        $Spend money$
-      </button>
-  </li>
-</a>
-          </ul>
+
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+AMr0SXj1f4qB1z8f2zF5KabT1g+" crossorigin="anonymous"></script>
               <div class="modal fade" id="ideaModal" tabindex="-1" aria-labelledby="ideaModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
@@ -2155,6 +2158,11 @@ searchInput.addEventListener("input", function () {
                 weatherResult.innerHTML = `<p class="text-danger">Please enter a city name.</p>`;
             }
         });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdownElement = document.querySelector('.dropdown-toggle');
+    const dropdown = new bootstrap.Dropdown(dropdownElement);
+});
 
 </script>
 
