@@ -16,6 +16,15 @@
             color: white;
             
         }
+        /* ...existing code... */
+      .dark-mode .card,
+     .dark-mode .card-title,
+       .dark-mode .card-text,
+     .dark-mode .card h6 {
+    color: #fff !important;
+    background-color: #1e1e1e !important;
+}
+/* ...existing code... */
         h3 {
             font-weight: 50;
             font-size: small;
@@ -1155,6 +1164,55 @@ body {
     position: absolute;
     z-index: 1050;
 }
+/* 1. Faqat test uchun, hech narsa o'zgarmaydi */
+.card-body {
+    box-sizing: border-box;
+}
+
+/* 2. Faqat test uchun, border-radius allaqachon bor */
+.card {
+    border-radius: 10px;
+}
+
+/* 3. Faqat test uchun, font-family allaqachon bor */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* 4. Faqat test uchun, default qiymat */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
+
+/* 5. Faqat test uchun, allaqachon mavjud */
+a {
+    text-decoration: none;
+}
+
+/* 6. Faqat test uchun, default qiymat */
+img {
+    border-style: none;
+}
+
+/* 7. Faqat test uchun, allaqachon mavjud */
+button {
+    font-family: inherit;
+}
+
+/* 8. Faqat test uchun, default qiymat */
+ul {
+    list-style-type: disc;
+}
+
+/* 9. Faqat test uchun, allaqachon mavjud */
+input, textarea {
+    font-family: inherit;
+}
+
+/* 10. Faqat test uchun, default qiymat */
+html {
+    box-sizing: border-box;
+}
 
     </style>
 </head>
@@ -1641,8 +1699,29 @@ Features: DLSS 4, Ray Tracing, PCIe 5.0 support
                 </div>
               </div>
         </div>
+        <div class="col">
+            <div class="card" background-color: rgb(255, 255, 255); border: 1px solid white; margin: 20px auto;>
+                <img src="image.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Air Pods 4
+                  </h5>
+                  <p class="card-text ">
+                     The new AirPods 4 feature an updated ergonomic design, improved sound quality
+</p>
+                  </p>
+                  <a href="image.webp" target="_blank" class="btn btn-primary">Show picture</a>
+                  <h6>
+                    Price: 240$  
+                  </h6>
+                   <h6>
+                    Price: 3 607 000 so'm
+                   </h6>
+                </div>
+              </div>
+        </div>
     </div>
 </div>
+
 
 <!-- Drawer ichida foydalanuvchi nomini ko'rsatish uchun joy -->
 <div class="offcanvas-body d-flex flex-column align-items-center justify-content-center">
@@ -2068,6 +2147,11 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Play Station 5", 
       description: "4K gaming, 120fps support", 
       image: "ps5-vs-ps5-pro-carousel-gallery-bild-1-data" 
+    },
+      { 
+      name: "Air Pods Pro", 
+      description: "Active Noise Cancellation, Transparency mode", 
+      image: "besprovodnye-naushniki-apple-airpods-pro-58619-4.jpeg" 
     },
   ];
 
